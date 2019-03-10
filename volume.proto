@@ -1,3 +1,7 @@
+//Purpose:
+// The default volume controller on Anroid phones does not allow for fine control
+// of media and call volume, so this app aims to give the user such control.
+
 // Create some text fields and some buttons for volume control (Media/Music + Call)
 mediaVolume = new Obj;
 mediaVolume.text = new textField
