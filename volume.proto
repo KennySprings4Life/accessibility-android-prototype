@@ -1,0 +1,35 @@
+// Create some text fields and some buttons for volume control (Media/Music + Call)
+mediaVolume = new Obj;
+mediaVolume.text = new textField
+mediaVolume.up = new Button;
+mediaVolume.down = new Button;
+
+callVolume = new Obj;
+callVolume.text = new textField
+callVolume.up = new Button;
+callVolume.down = new Button;
+
+
+// Code placeholders and such
+AudioManager mgr=null;
+mgr=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+
+
+mediaVolume.val = new Int; // Ought to be defined when mediaVolume is initialized.
+
+// mediaVolume 'up' handler
+mediaVolume.up.onClick(){
+  mediaVolume.val++;
+  mgr.setStreamVolume(AudioManager.STREAM_MUSIC, mediaVolume.val, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+  mediaVolume.text = mediaVolume.val;
+}
+
+// mediaVolume 'down' handler
+mediaVolume.down.onClick(){
+  mediaVolume.val--;
+  mgr.setStreamVolume(AudioManager.STREAM_MUSIC, mediaVolume.val, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+  mediaVolume.text = mediaVolume.val;
+}
+
+
+// for call volume, just do the same as with mediaVolume but use STREAM_VOICE_CALL
